@@ -363,11 +363,11 @@ span.fr-img-caption.fr-view {
 /*begin-commonstyles animate*/@charset "UTF-8";
 
 /*!
- * animate.css -http://daneden.me/animate
- * Version - 3.7.0
+ * animate.css -https://daneden.github.io/animate.css/
+ * Version - 3.7.2
  * Licensed under the MIT license - http://opensource.org/licenses/MIT
  *
- * Copyright (c) 2018 Daniel Eden
+ * Copyright (c) 2019 Daniel Eden
  */
 
 @-webkit-keyframes bounce {
@@ -3975,12 +3975,14 @@ span.fr-img-caption.fr-view {
   animation-duration: 3s;
 }
 
-@media (prefers-reduced-motion) {
+@media (print), (prefers-reduced-motion: reduce) {
   .animated {
-    -webkit-animation: unset !important;
-    animation: unset !important;
-    -webkit-transition: none !important;
-    transition: none !important;
+    -webkit-animation-duration: 1ms !important;
+    animation-duration: 1ms !important;
+    -webkit-transition-duration: 1ms !important;
+    transition-duration: 1ms !important;
+    -webkit-animation-iteration-count: 1 !important;
+    animation-iteration-count: 1 !important;
   }
 }
 /*end-commonstyles animate*//*! normalize.css v4.1.1 | MIT License | github.com/necolas/normalize.css */
@@ -4592,13 +4594,13 @@ ol {
   /*TODO maye need another solution for negative marin*/
   cursor: pointer;
   color: inherit;
+  font-style: inherit;
   font-size: inherit;
+  font-weight: inherit;
   font-family: inherit;
   line-height: inherit;
   letter-spacing: inherit;
   text-transform: inherit;
-  font-style: inherit;
-  font-weight: inherit;
   text-decoration: none;
   border: 0 none transparent;
   outline-width: 0;
@@ -4646,20 +4648,22 @@ ol {
   border-radius: 0 !important;
 }
 .u-text a,
-.u-post-content a,
+.u-blog-control a,
 .u-tab-item a,
 .u-nav-item a {
+  font-style: inherit;
   font-size: inherit;
+  font-weight: inherit;
   font-family: inherit;
   line-height: inherit;
   letter-spacing: inherit;
   text-transform: inherit;
 }
-.u-text:not(ul):not(ol):not(p):not(.u-post-content):not(.u-block-content):not(.u-product-desc):not(.u-cart-block-content) a {
+.u-text:not(ul):not(ol):not(p):not(.u-post-content):not(.u-block-content):not(.u-product-desc) a {
   color: inherit;
 }
-.u-text:not(ul):not(ol):not(p):not(.u-post-content):not(.u-block-content):not(.u-product-desc):not(.u-cart-block-content) a,
-.u-text:not(ul):not(ol):not(p):not(.u-post-content):not(.u-block-content):not(.u-product-desc):not(.u-cart-block-content) a:hover {
+.u-text:not(ul):not(ol):not(p):not(.u-post-content):not(.u-block-content):not(.u-product-desc) a,
+.u-text:not(ul):not(ol):not(p):not(.u-post-content):not(.u-block-content):not(.u-product-desc) a:hover {
   text-decoration: none;
 }
 .u-link,
@@ -4725,13 +4729,13 @@ a {
 }
 .u-logo {
   color: inherit;
+  font-style: inherit;
   font-size: inherit;
+  font-weight: inherit;
   font-family: inherit;
   line-height: inherit;
   letter-spacing: inherit;
   text-transform: inherit;
-  font-style: inherit;
-  font-weight: inherit;
   text-decoration: none;
   border: 0 none transparent;
   outline-width: 0;
@@ -5219,11 +5223,6 @@ a {
 .u-form-vertical .u-form-partition-factor-1 {
   width: 100%;
 }
-@media (max-width: 575px) {
-  .u-form-vertical .u-form-group {
-    width: 100%;
-  }
-}
 .u-form-horizontal .u-form-group {
   display: flex;
   flex: 0 0 auto;
@@ -5442,7 +5441,6 @@ a {
 .u-form .u-form-group.u-form-checkbox input[type="checkbox"],
 .u-form .u-form-group.u-form-agree input[type="checkbox"] {
   float: left;
-  flex-shrink: 0;
 }
 .u-form .u-form-group.u-form-checkbox label.u-label,
 .u-form .u-form-group.u-form-agree label.u-label {
@@ -5475,9 +5473,6 @@ a {
   position: relative;
   font-size: 1rem;
   height: auto !important;
-}
-.u-form-group {
-  text-align: start;
 }
 .u-btn-submit {
   display: inline-block;
@@ -12128,9 +12123,6 @@ section.u-image,
   z-index: auto;
   position: absolute !important;
 }
-.u-offcanvas-opened .u-header.u-sticky + section {
-  z-index: -1;
-}
 .u-hide-header .u-header,
 .u-hide-footer .u-footer {
   display: none;
@@ -15872,13 +15864,13 @@ div.u-video,
 .u-nav-link {
   display: block;
   white-space: nowrap;
+  font-style: inherit;
   font-size: inherit;
+  font-weight: inherit;
   font-family: inherit;
   line-height: inherit;
   letter-spacing: inherit;
   text-transform: inherit;
-  font-style: inherit;
-  font-weight: inherit;
   text-decoration: none;
   border: 0 none transparent;
   outline-width: 0;
@@ -15920,17 +15912,6 @@ div.u-video,
   width: 0;
   height: 0;
   overflow: hidden;
-}
-.menu-collapse .u-nav-link.u-file-icon img {
-  position: absolute;
-  top: 0;
-  left: 0;
-  object-fit: contain;
-}
-.menu-collapse .u-nav-link.u-file-icon::after {
-  content: '';
-  height: 1em;
-  display: block;
 }
 .u-nav-container-collapse {
   display: none;
@@ -15997,10 +15978,6 @@ div.u-video,
 }
 .u-enable-responsive.u-offcanvas .u-sidenav > * {
   position: relative;
-}
-.u-enable-responsive.u-offcanvas .u-sidenav .u-nav-link {
-  padding-left: 0 !important;
-  padding-right: 0 !important;
 }
 .u-enable-responsive.u-offcanvas:not(.u-menu-open-right) .u-sidenav {
   border-left: none;
@@ -16357,13 +16334,13 @@ p {
 }
 .u-social-url {
   color: inherit;
+  font-style: inherit;
   font-size: inherit;
+  font-weight: inherit;
   font-family: inherit;
   line-height: inherit;
   letter-spacing: inherit;
   text-transform: inherit;
-  font-style: inherit;
-  font-weight: inherit;
   text-decoration: none;
   border: 0 none transparent;
   outline-width: 0;
@@ -17667,9 +17644,6 @@ a.pswp__share--download:hover {
 .u-text .u-btn.u-button-link {
   display: inline;
 }
-.u-text.u-cart-block-content .u-btn {
-  white-space: nowrap;
-}
 .u-slider {
   display: flex;
   flex-direction: column;
@@ -17815,10 +17789,10 @@ a.pswp__share--download:hover {
   display: flex;
   align-items: center;
   justify-content: center;
-  overflow: hidden;
 }
 .u-quantity-input input,
-.u-quantity-input a {
+.u-quantity-input span {
+  text-align: center;
   vertical-align: middle;
   line-height: 2em;
   height: 2em;
@@ -17829,44 +17803,23 @@ a.pswp__share--download:hover {
   min-width: 3em;
   width: 100%;
 }
-.u-quantity-input a {
+.u-quantity-input span {
   flex-shrink: 0;
   flex-grow: 0;
-  align-items: center;
-  display: flex;
+  display: block;
   position: relative;
   width: 2em;
-  text-align: center;
-  text-decoration: none;
+  border-top: none;
+  border-bottom: none;
   -webkit-user-select: none;
       -ms-user-select: none;
           user-select: none;
 }
-.u-quantity-input a,
-.u-quantity-input a:hover {
-  color: inherit;
+.u-quantity-input span:first-child {
+  border-left: none;
 }
-.u-quantity-input a svg {
-  flex: 1 0 auto;
-}
-.u-quantity-input a:not(.u-hidden) ~ input {
-  text-align: center;
-}
-[class*="u-border-"].u-quantity-input a {
-  border-top-width: 0 !important;
-  border-bottom-width: 0 !important;
-}
-[class*="u-border-"].u-quantity-input a:first-child {
-  border-left-width: 0 !important;
-}
-[class*="u-border-"].u-quantity-input a:last-child {
-  border-right-width: 0 !important;
-}
-.u-quantity-input a.disabled {
-  pointer-events: none;
-}
-.u-quantity-input a.disabled svg {
-  opacity: 0.33;
+.u-quantity-input span:last-child {
+  border-right: none;
 }
 .u-shopping-cart {
   display: block;
@@ -17892,36 +17845,6 @@ a.pswp__share--download:hover {
   text-align: center;
   vertical-align: baseline;
   box-sizing: content-box;
-}
-.u-cart-product-image {
-  width: 100px;
-  display: inline-block;
-}
-.u-cart-product-title {
-  display: inline-block;
-  margin-top: 0;
-  margin-bottom: 0;
-  margin-left: 10px;
-}
-.u-cart-button-container {
-  display: flex;
-  position: relative;
-  justify-content: space-between;
-}
-.u-cart-blocks-container {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-gap: 30px;
-  position: relative;
-}
-@media (max-width: 767px) {
-  .u-cart-blocks-container {
-    grid-template-columns: 1fr;
-  }
-  .u-cart-form .u-btn-submit {
-    flex-grow: 0;
-    margin-left: auto;
-  }
 }
 .u-dialog {
   display: flex;
@@ -17994,13 +17917,13 @@ a.pswp__share--download:hover {
 .u-carousel-control-prev,
 .u-carousel-control-next {
   color: inherit;
+  font-style: inherit;
   font-size: inherit;
+  font-weight: inherit;
   font-family: inherit;
   line-height: inherit;
   letter-spacing: inherit;
   text-transform: inherit;
-  font-style: inherit;
-  font-weight: inherit;
   text-decoration: none;
   border: 0 none transparent;
   outline-width: 0;
