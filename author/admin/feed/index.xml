@@ -8,8 +8,8 @@
 	>
 
 <channel>
-	<title>Apostolos K. &#8211; Web Developer</title>
-	<atom:link href="/feed" rel="self" type="application/rss+xml" />
+	<title>admin &#8211; Apostolos K. &#8211; Web Developer</title>
+	<atom:link href="/author/admin/feed" rel="self" type="application/rss+xml" />
 	<link>/</link>
 	<description>Web Developer</description>
 	<lastBuildDate>Wed, 18 Jan 2023 14:49:16 +0000</lastBuildDate>
